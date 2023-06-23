@@ -4,12 +4,12 @@ import net.sf.json.JSONObject;
 
 public class MessageUtil {
 
-  public static final String LOGIN_ERROR_MSG = "Not Match！Try Again!";
+  public static final String LOGIN_ERROR_MSG = "Wrong Username/Password！Try Again!";
   public static final String LOGIN_BAN_MSG ="You have been banned！";
   public static final String LOGIN_SUCCESS_MSG = "Success！";
   public static final String ALREADY_LOGIN_MSG = "Already Login";
   public static final String NOT_LOGIN_MSG = "Not Login";
-  public static final String LOGOUT_SUCCESS_MSG = "Exit successfully";
+  public static final String LOGOUT_SUCCESS_MSG = "Exit successfully!";
   public static final String LOGOUT_ERROR_MSG = "Exit failed";
   public static final String REGISTER_ERROR_MSG = "ID has already been registered";
   public static final String REGISTER_SUCCESS_MSG = "Registration succeeded";

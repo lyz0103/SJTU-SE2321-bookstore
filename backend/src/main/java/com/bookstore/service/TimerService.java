@@ -1,16 +1,12 @@
 package com.bookstore.service;
 
-import java.sql.Timestamp;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 public interface TimerService {
 
-    void start();
+    LocalDateTime startTimer();
 
-    void end();
+    Duration stopTimer();
 
-    Timestamp getStartTime();
-
-    Timestamp getEndTime();
-
-    long getPeriod();
 }
