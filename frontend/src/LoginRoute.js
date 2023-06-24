@@ -41,7 +41,7 @@ export class LoginRoute extends React.Component{
 		return <Route path={path} exact={exact} strict={strict} render={props => (
 			this.state.isAuthed ? (
 				<Redirect to={{
-					pathname: '/',
+					pathname: '/login',
 					state: {from: props.location}
 				}}/>
 			) : (

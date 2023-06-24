@@ -8,9 +8,18 @@ export const login = (data) => {
 	const url = `${config.apiUrl}/login`;
 	const callback = (data) => {
 		if(data.status >= 0) {
+			// calculate online duration
+			const moment = data.data.moment;
+			let hour = moment.hour;
+			let minute = moment.minute;
+			let second = moment.second;
+			hour = hour < 10 ? `0${hour}` : `${hour}`;
+			minute = minute < 10 ? `0${minute}` : `${minute}`;
+			second = second < 10 ? `0${second}` : `${second}`;
+
 			localStorage.setItem('user', JSON.stringify(data.data));
 			history.push('/home');
-			message.success(data.message);
+			message.success(`${data.message} Logged in at ${moment.year}/${moment.monthValue}/${moment.dayOfMonth} ${hour}:${minute}:${second}`);
 		}
 		else{
 			message.error(data.message);
@@ -24,9 +33,17 @@ export const logout = () => {
 
 	const callback = (data) => {
 		if(data.status > 0) {
+			// calculate online duration
+			let hour = data.data.hour;
+			let minute = data.data.minute;
+			let second = data.data.second;
+			hour = hour < 10 ? `0${hour}` : `${hour}`;
+			minute = minute < 10 ? `0${minute}` : `${minute}`;
+			second = second < 10 ? `0${second}` : `${second}`;
+			
 			localStorage.removeItem('user');
 			history.push('/login');
-			message.success(data.message);
+			message.success(`${data.message} Online Duration: ${hour}:${minute}:${second}`);
 		}
 		else{
 			history.push('/login');
